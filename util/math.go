@@ -1,6 +1,9 @@
 package util
 
-import "strconv"
+import (
+	"strconv"
+	"strings"
+)
 
 func ToInt(s string) int {
 	i, _ := strconv.Atoi(s)
@@ -27,4 +30,28 @@ func Abs(i int) int {
 		return -i
 	}
 	return i
+}
+
+func IntArray(s string) []int {
+	ss := strings.Fields(s)
+	if len(ss) > 0 {
+		return intArray(ss)
+	}
+	ss = strings.Split(s, ", ")
+	if len(ss) > 0 {
+		return intArray(ss)
+	}
+	ss = strings.Split(s, "\n")
+	if len(ss) > 0 {
+		return intArray(ss)
+	}
+	return nil
+}
+
+func intArray(ss []string) []int {
+	res := make([]int, len(ss))
+	for i, s := range ss {
+		res[i] = ToInt(s)
+	}
+	return res
 }

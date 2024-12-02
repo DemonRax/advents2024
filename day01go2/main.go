@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	fmt.Println(similarity(util.ReadFile("./day01go1/input.txt")))
+	fmt.Println(similarity(util.ReadFile("./day01go2/input.txt")))
 }
 
 func similarity(ss []string) int {
