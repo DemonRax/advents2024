@@ -32,16 +32,16 @@ func Abs(i int) int {
 	return i
 }
 
+var preds = []string{",", ", ", " ", "\n"}
+
 func IntArray(s string) []int {
+	for _, pred := range preds {
+		ss := strings.Split(s, pred)
+		if len(ss) > 0 {
+			return intArray(ss)
+		}
+	}
 	ss := strings.Fields(s)
-	if len(ss) > 0 {
-		return intArray(ss)
-	}
-	ss = strings.Split(s, ", ")
-	if len(ss) > 0 {
-		return intArray(ss)
-	}
-	ss = strings.Split(s, "\n")
 	if len(ss) > 0 {
 		return intArray(ss)
 	}
